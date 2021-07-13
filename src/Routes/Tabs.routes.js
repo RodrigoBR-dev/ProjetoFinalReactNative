@@ -8,7 +8,6 @@ import {
   MaterialIcons,
 } from "react-native-vector-icons";
 
-import StackRoutes from "./Stack.routes";
 import Home from "../Screens/Home";
 import Category from "../Screens/Category";
 import Favorite from "../Screens/Favorite";
@@ -19,7 +18,6 @@ const Tabs = createBottomTabNavigator();
 
 export default function TabRoutes() {
   return (
-    <NavigationContainer>
       <Tabs.Navigator
         initialRouteName="Home"
         tabBarOptions={{
@@ -54,26 +52,6 @@ export default function TabRoutes() {
             ),
           }}
         />
-        <Tabs.Screen
-          name="StackRoutes"
-          component={StackRoutes}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="account-circle"
-                color={color}
-                size={35}
-              />
-            ),
-          }}
-        />
-        {/* 
-        
-        (login) ? myaccount : Stacknavitor
-        
-        
-        
-        
         
         <Tabs.Screen
           name="MyAccount"
@@ -87,8 +65,7 @@ export default function TabRoutes() {
               />
             ),
           }}
-        /> */}
+        />
       </Tabs.Navigator>
-    </NavigationContainer>
   );
 }
