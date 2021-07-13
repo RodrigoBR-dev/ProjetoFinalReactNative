@@ -1,5 +1,4 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import {
@@ -12,7 +11,6 @@ import Home from "../Screens/Home";
 import Category from "../Screens/Category";
 import Favorite from "../Screens/Favorite";
 import MyAccount from "../Screens/MyAccount";
-import Login from "../Screens/Login";
 
 const Tabs = createBottomTabNavigator();
 
