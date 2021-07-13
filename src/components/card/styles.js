@@ -3,11 +3,19 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     Container:{
         flex:1,
-        backgroundColor:'#4BD5E7',
-        borderRadius:25,
-        margin:5,
-        padding: 5,
-        justifyContent:'center'
+        justifyContent:"center",
+        alignItems:'center',
+        marginBottom:10,
+    },
+    Card:{
+        width:160,
+        backgroundColor:'#fff',
+        borderRadius:15,
+        margin:7,
+        justifyContent:"center",
+        alignItems:'center',
+        marginBottom:5,
+       
     },
     Titulo:{
         fontWeight:'900',
@@ -15,11 +23,11 @@ const styles = StyleSheet.create({
     Imagem:{
         width: 100,
         height: 100,
-        borderRadius:90,
-        backgroundColor:'#1ECBE1'
-
+        borderRadius:20,
+        // backgroundColor:'#1ECBE1',
     },
     Info:{
+        
         fontSize:20,
 
     },
