@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { View , FlatList} from 'react-native';
-import apiProduto from '../../service/apiProduto'
-import Produto from '../../model/produto'
-import Card from '../../components/card/index'
-
-import Header from "../../components/Header";
+import apiProduto from '../../service/apiProduto';
+import Produto from '../../model/produto';
+import Card from '../../components/card/index';
 
 import styles from "./styles";
 
 const Home = () => {
-    const [produtos,setProdutos] = useState([])
+    const [produtos,setProdutos] = useState({})
     
     const handleProdutos = async () =>{
         const resposta = await apiProduto.buscarTodosProduto();
         setProdutos(resposta.data.map( produto => new Produto(produto)));
+
     }
 
     const renderProduto = ({ item }) => (
@@ -26,12 +25,12 @@ const Home = () => {
 
   return (
     <View>
-        <Header />
         <FlatList 
             data={produtos}
             keyExtractor={ item => item.nome}
             renderItem={renderProduto}
         />
+        
     </View>
   )
 }
