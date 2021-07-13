@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-// import { Container } from './styles';
+import styles from './styles';
 
 const CardCategory = (props) => {
   return(
-    <View>
-      <Text>{props.nome}</Text>
+    <View >
+        <View >
+            <Text>{props.nome}</Text>
+        </View>
     </View>
   )
 }

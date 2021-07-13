@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
-    Container:{
+export default styles = StyleSheet.create({
+    container:{
         flex:1,
         justifyContent:"center",
         alignItems:'center',
         marginBottom:10,
     },
-    Card:{
+    card:{
         width:160,
         backgroundColor:'#fff',
         borderRadius:15,
@@ -17,19 +17,8 @@ const styles = StyleSheet.create({
         marginBottom:5,
        
     },
-    Titulo:{
+    title:{
         fontWeight:'900',
     },
-    Imagem:{
-        width: 100,
-        height: 100,
-        borderRadius:20,
-        // backgroundColor:'#1ECBE1',
-    },
-    Info:{
-        
-        fontSize:20,
 
-    },
 })
-export default styles;

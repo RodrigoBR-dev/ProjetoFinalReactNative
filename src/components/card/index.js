@@ -6,9 +6,12 @@ import money from '../../util/money'
 function Card(props){
 
     return(
-        <View style={styles.Container}>
-            <Text style={styles.Titulo} >{props.nome}</Text>
+
+        <View style={styles.Container} >
+        <View style={styles.Card}>
             <Image style={styles.Imagem} source={{uri:props.imagem}}/>
+        </View>
+            <Text style={styles.Titulo} >{props.nome}</Text>
             <Text style={styles.Info}>{money.formatarParaReal(props.preco)}</Text>
         </View>
     )

@@ -1,36 +1,40 @@
 import React, { useState , useEffect} from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, View , Text} from 'react-native';
 
-import Product from '../../model/produto'
 import apiProduto from '../../service/apiProduto';
 import CardCategory from '../../components/cardCategory/index';
-// import { Container } from './styles';
+import styles from './styles';
 
 const Category = () => {
-    const [category, setCategory] = useState('');
-    const [products,setProducts] = useState([]);
-
+    const [category, setCategory] = useState([]);
+ 
     const searchCategory = async () =>{
-      const response = await apiProduto.buscarTodosProduto();
-      setProducts(response.data.map( product => new Product(product)));
-    }
+      const response = await apiProduto.searchCategory();
+      setCategory(response.data)
+      
+    } 
 
-    const renderCategory = ({ item }) => (
-        <CardCategory nome={item.categoria}/>
-      );
+    // const renderCategory = ({ item }) => (
+    //     <CardCategory nome={item}/>
+    //   );
 
 
     useEffect(() => {
         searchCategory();
-
-    });
+    },[]);
 
   return (
     <View >
         <FlatList
-        renderItem={products}
-        keyExtractor={ item => item.nome}
-        renderItem={renderCategory}
+        data={category}
+        keyExtractor={ (item,index) => String(index) }
+        renderItem={({item}) => (
+          <View style={styles.container}>
+              <View style={styles.card}>
+                <Text style={styles.title}>{item.nome}</Text>
+              </View>
+          </View>
+          )}
         />
     </View>
   )
