@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput } from "react-native";
+import { View, Image, TextInput } from "react-native";
 import { EvilIcons, FontAwesome5 } from "react-native-vector-icons";
 
 import styles from "./style";
@@ -7,13 +7,13 @@ import styles from "./style";
 const Header = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>Luxury</Text>
+      <Image style={styles.logo} source={require("../../../assets/logo-2.png")}/>
       <View style={styles.boxSearch}>
         <EvilIcons
           style={styles.searchIcon}
           name="search"
           size={20}
-          color="#b9b9b9"
+          color="#F0C818"
         />
         <TextInput
           style={styles.inputStyle}
@@ -21,7 +21,7 @@ const Header = () => {
           placeholder="Procurar"
         />
 
-        <FontAwesome5 style={styles.bag} name="shopping-bag" size={35} />
+        <FontAwesome5 style={styles.bag} name="shopping-bag" size={29} />
       </View>
     </View>
   );

@@ -24,7 +24,7 @@ export default function TabRoutes() {
         initialRouteName="Home"
         tabBarOptions={{
           showLabel: false,
-          activeTintColor: "blue",
+          activeTintColor: "#F0C818",
         }}
       >
         <Tabs.Screen
