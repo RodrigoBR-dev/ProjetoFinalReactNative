@@ -1,9 +1,9 @@
 import React from 'react';
-import TabRoutes from './src/Routes/Tabs.routes';
+import StackRoutes from './src/Routes/Stack.routes';
 
 export default function App() {
   return (
-    <TabRoutes/>
+    <StackRoutes/>
   );
 }
 

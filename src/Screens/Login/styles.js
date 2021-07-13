@@ -9,11 +9,14 @@ const styles = StyleSheet.create({
   header: {
       flex:1,
       width: '100%',
+      justifyContent: "center",
+      alignItems: "center",
   },
 
   textContainer: {
       flex: 1,
       width: '80%',
+      justifyContent: 'space-around',
   },
 
   footer: {
@@ -23,12 +26,14 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
   },
 
-  textImput: {
-    height: 20,
+  textInput: {
+    height: 40,
     width: '100%',
-    borderBottomWidth: 5,
-    borderColor: 'black',
+    overflow: 'hidden',
+    borderBottomWidth: 2,
+    borderColor: '#ddd',
     marginBottom: 20,
+    padding: 10,
   },
 
   button: {
@@ -37,8 +42,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 8,
-      backgroundColor: '#F7C325',
-
+      backgroundColor: '#F0C818',
   },
 });
 

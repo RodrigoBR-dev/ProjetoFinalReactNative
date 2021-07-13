@@ -1,13 +1,14 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 
 // import { Container } from './styles';
 import styles from "./styles";
 
-const MyAccount = () => {
+const MyAccount = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.texto}>Sou minha conta</Text>
+      <Button title='Login' onPress={() => navigation.navigate('Login')}/>
     </View>
   );
 };
