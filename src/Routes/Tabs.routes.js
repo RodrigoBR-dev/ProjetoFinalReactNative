@@ -8,14 +8,16 @@ import {
   MaterialIcons,
 } from "react-native-vector-icons";
 
+import StackRoutes from "./Stack.routes";
 import Home from "../Screens/Home";
 import Category from "../Screens/Category";
 import Favorite from "../Screens/Favorite";
 import MyAccount from "../Screens/MyAccount";
+import Login from "../Screens/Login";
 
 const Tabs = createBottomTabNavigator();
 
-export default function Routes() {
+export default function TabRoutes() {
   return (
     <NavigationContainer>
       <Tabs.Navigator
@@ -33,7 +35,7 @@ export default function Routes() {
               <MaterialCommunityIcons name="home" color={color} size={35} />
             ),
           }}
-        ></Tabs.Screen>
+        />
         <Tabs.Screen
           name="Category"
           component={Category}
@@ -42,7 +44,7 @@ export default function Routes() {
               <Feather name="list" color={color} size={35} />
             ),
           }}
-        ></Tabs.Screen>
+        />
         <Tabs.Screen
           name="Favorite"
           component={Favorite}
@@ -51,7 +53,28 @@ export default function Routes() {
               <MaterialIcons name="favorite" color={color} size={35} />
             ),
           }}
-        ></Tabs.Screen>
+        />
+        <Tabs.Screen
+          name="StackRoutes"
+          component={StackRoutes}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="account-circle"
+                color={color}
+                size={35}
+              />
+            ),
+          }}
+        />
+        {/* 
+        
+        (login) ? myaccount : Stacknavitor
+        
+        
+        
+        
+        
         <Tabs.Screen
           name="MyAccount"
           component={MyAccount}
@@ -64,7 +87,7 @@ export default function Routes() {
               />
             ),
           }}
-        ></Tabs.Screen>
+        /> */}
       </Tabs.Navigator>
     </NavigationContainer>
   );
