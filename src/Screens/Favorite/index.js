@@ -5,8 +5,8 @@ import styles from './styles';
 
 const Favorite = () => {
   return (
-    <View>
-      <Text>Sou um favotiro</Text>
+    <View  style={styles.container}>
+      <Text style={styles.texto}>Sou um favotiro</Text>
     </View>
   );
 };

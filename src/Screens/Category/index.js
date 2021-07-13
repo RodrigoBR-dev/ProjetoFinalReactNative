@@ -6,7 +6,7 @@ import styles from './styles';
 const Category = () => {
   return (
     <View style={styles.container}>
-      <Text>Sou uma categoria</Text>
+      <Text style={styles.texto}>Sou uma categoria</Text>
     </View>
   );
 };
