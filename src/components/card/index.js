@@ -1,18 +1,28 @@
-import React, { useEffect } from 'react';
-import { View , Text, Image } from 'react-native';
-import styles from './styles';
-import money from '../../util/money'
-function Card(props){
+import React, { useEffect } from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import styles from "./styles";
+import money from "../../util/money";
 
-    return(
+import { useNavigation } from "@react-navigation/native";
 
-        <View style={styles.Container} >
-        <View style={styles.Card}>
-            <Image style={styles.Imagem} source={{uri:props.imagem}}/>
-        </View>
-            <Text style={styles.Titulo} >{props.nome}</Text>
-            <Text style={styles.Info}>{money.formatarParaReal(props.preco)}</Text>
-        </View>
-    )
+function Card({ name, price, image, description }) {
+  const navigation = useNavigation();
+
+  function handleProductDetails(name, price, image, description) {
+    navigation.navigate("ProductDetails", { name, price, image, description });
+  }
+
+  return (
+    <TouchableOpacity
+      style={styles.Container}
+      onPress={() => handleProductDetails(name, price, image, description)}
+    >
+      <View style={styles.Card}>
+        <Image style={styles.Imagem} source={{ uri: image }} />
+      </View>
+      <Text style={styles.Titulo}>{name}</Text>
+      <Text style={styles.Info}>{money.formatarParaReal(price)}</Text>
+    </TouchableOpacity>
+  );
 }
 export default Card;
