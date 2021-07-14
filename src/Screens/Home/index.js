@@ -25,7 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     handleProdutos();
-  }, [produtos]);
+  }, []);
 
   return (
     <FlatList
