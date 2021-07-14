@@ -3,6 +3,7 @@ import { View, FlatList } from "react-native";
 import apiProduto from "../../service/apiProduto";
 import Produto from "../../model/produto";
 import Card from "../../components/card/index";
+import { MaterialIcons } from "react-native-vector-icons";
 import styles from "./styles";
 
 const Home = () => {
@@ -27,13 +28,14 @@ const Home = () => {
   }, [produtos]);
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         style={styles.CardContainer}
         data={produtos}
         keyExtractor={(item) => item.nome}
         numColumns={2}
         renderItem={renderProduto}
+        i
       />
     </View>
   );
