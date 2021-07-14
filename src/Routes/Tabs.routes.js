@@ -1,5 +1,4 @@
-import React,{useState} from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import {
@@ -14,13 +13,11 @@ import Favorite from "../Screens/Favorite";
 import MyAccount from "../Screens/MyAccount";
 import Header from "../components/Header";
 
-// 
 const Tabs = createBottomTabNavigator();
 
 export default function TabRoutes() {
   return (
-
-    <NavigationContainer>
+    <>
       <Header />
       <Tabs.Navigator
         initialRouteName="Home"
@@ -70,5 +67,6 @@ export default function TabRoutes() {
           }}
         />
       </Tabs.Navigator>
+    </>
   );
 }
