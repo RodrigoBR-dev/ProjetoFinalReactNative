@@ -4,11 +4,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#ffff"
   },
-  texto: {
-    fontSize: 35,
-  },
+  logo:{
+    margin: 100,
+    width: 325,
+    height: 110
+  }
+  
 });
 
 export default styles;
