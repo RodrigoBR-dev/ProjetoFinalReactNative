@@ -1,30 +1,38 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "react-native-vector-icons";
 
 import styles from "./styles";
 import money from "../../util/money";
 
-function Card(props) {
+import { Button } from "../Button";
+
+import { useNavigation } from "@react-navigation/native";
+
+function Card({ name, price, image, description }) {
+  const navigation = useNavigation();
+  function handleProductDetails() {
+    navigation.navigate("ProductDetails", { name, price, image, description });
+  }
+
   return (
-    <View style={styles.Container}>
-      <View style={styles.Card}>
-        <TouchableOpacity style={styles.boxIcon}>
-          <MaterialIcons //add icone para favoritar produtos em uma lista
+    <TouchableOpacity
+      style={styles.Card}
+      onPress={() => handleProductDetails()}
+    >
+      {/* <TouchableOpacity style={styles.boxIcon}>
+        <MaterialIcons
             style={styles.iconFavorite}
             name="favorite"
             size={30}
             color="#E80510"
           />
-        </TouchableOpacity>
-        <Image style={styles.Imagem} source={{ uri: props.imagem }} />
-        <Text style={styles.Titulo}>{props.nome}</Text>
-        <Text style={styles.Info}>{money.formatarParaReal(props.preco)}</Text>
-        <TouchableOpacity style={styles.button} value="COMPRAR"  >
-          <Text style={styles.textButton}>Comprar</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+      </TouchableOpacity> */}
+      <Image style={styles.Imagem} source={{ uri: image }} />
+      <Text style={styles.Titulo}>{name}</Text>
+      <Text style={styles.Info}>{money.formatarParaReal(price)}</Text>
+      <Button />
+    </TouchableOpacity>
   );
 }
 export default Card;

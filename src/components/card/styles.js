@@ -1,12 +1,6 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  Container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 10,
-  },
   Card: {
     width: 160,
     backgroundColor: "#fff",
@@ -15,6 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 5,
+    paddingVertical: 20,
   },
   boxIcon: {
     alignSelf: "flex-end",
@@ -24,7 +19,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   Titulo: {
-    fontWeight: "900",
+    textAlign: "center",
+    width: 160,
   },
   Imagem: {
     width: 100,
@@ -37,25 +33,6 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0.5, height: 0.5 },
     textShadowRadius: 0.9,
     fontSize: 20,
-  },
-  button: {
-    width: 100,
-    height: 30,
-    borderRadius: 8,
-    margin: 5,
-    backgroundColor: "#F0C818",
-  },
-  textButton: {
-    padding: 3,
-    textAlign: "center",
-    textTransform: "uppercase",
-    color: "white",
-    textShadowColor: "black",
-    textShadowOffset: { width: 0.5, height: 0.5 },
-    textShadowRadius: 0.1,
-    borderWidth:1,
-    borderRadius:8,
-    borderColor:"#F0DE18"
   },
 });
 export default styles;

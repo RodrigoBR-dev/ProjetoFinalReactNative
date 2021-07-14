@@ -1,0 +1,23 @@
+import React from "react";
+
+import { View, Text } from "react-native";
+
+import { styles } from "./styles";
+
+export function Button({ big }) {
+  return (
+    <View
+      style={[
+        styles.button,
+        big ? { width: 140, height: 60 } : { width: 100, height: 30 },
+      ]}
+      value="COMPRAR"
+    >
+      <Text
+        style={[styles.textButton, big ? { fontSize: 20 } : { fontSIze: 16 }]}
+      >
+        Comprar
+      </Text>
+    </View>
+  );
+}
