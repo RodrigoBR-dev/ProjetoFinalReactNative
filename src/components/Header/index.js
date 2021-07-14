@@ -4,10 +4,13 @@ import { EvilIcons, FontAwesome5 } from "react-native-vector-icons";
 
 import styles from "./style";
 
-const Header = () => {
+const Header = ({ isDetailsPage }) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.logo} source={require("../../../assets/logo-2.png")}/>
+      <Image
+        style={styles.logo}
+        source={require("../../../assets/logo-2.png")}
+      />
       <View style={styles.boxSearch}>
         <EvilIcons
           style={styles.searchIcon}
@@ -21,7 +24,11 @@ const Header = () => {
           placeholder="Procurar"
         />
 
-        <FontAwesome5 style={styles.bag} name="shopping-bag" size={29} />
+        <FontAwesome5
+          style={[styles.bag, isDetailsPage && { color: "#FF2418" }]}
+          name="shopping-bag"
+          size={29}
+        />
       </View>
     </View>
   );
