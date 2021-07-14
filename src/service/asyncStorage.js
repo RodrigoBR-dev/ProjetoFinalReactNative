@@ -22,32 +22,33 @@ const armazenaToken = async (token) => {
             "value": token,
             "expires": expires
         }))
-        console.log(token)
     } catch (e) {}
 };
 
 const obterToken = async () => {
     try{
-        let token = await JSON.parse(AsyncStorage.getItem("token"));
+        let token = await JSON.parse(await AsyncStorage.getItem("token"));
         if (token) {
             let currentDate = new Date().getTime();
-            return token.expires <= currentDate ? removeToken() : token.value;
+            return token.expires <= currentDate ? logout() : token.value;
         }
     } catch(e) {}
 }
 
-const removeToken = async () => {
+const logout = async () => {
     try {
       await AsyncStorage.removeItem('token');
+      await AsyncStorage.removeItem('userName');
     } catch(e) {}
   };
-
 
 const armazenarUser = async (userName) => {
     try {
         await AsyncStorage.setItem("userName" , userName)
     } catch(e) {}
 }
+
+
 
 export default {
     armazenarPedido,

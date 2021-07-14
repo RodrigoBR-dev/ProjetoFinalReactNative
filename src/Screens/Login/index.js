@@ -6,11 +6,10 @@ import {
   TouchableOpacity,
   Text,
   CheckBox,
-  Button,
 } from 'react-native';
 
 import styles from './styles';
-import { logar } from '../../service/apiLogin'
+import apiLogin from '../../service/apiLogin'
 import asyncStorage from '../../service/asyncStorage'
 
 export default function Login(){
@@ -25,20 +24,19 @@ export default function Login(){
       return (<></>);
     }
 
-   logar(email, senha)
+   apiLogin.logar(email, senha)
       .then(resposta => {
         const token = resposta.data[0].Authorization;
-        //const user = resposta.data[1].userName;
-        armazenarToken(token);
-        //utilStorage.armazenarUser(user);
+        const user = resposta.data[1].userName;
+        asyncStorage.armazenaToken(token);
+        asyncStorage.armazenarUser(user);
       })
       .catch(error => {
         let erroStatus = error.response.status;
         if (erroStatus == 403) {
         alert("Usuário ou senha inválido");
-        return
+        return (<></>);
         }
-        console.log(error)
       })
   }
 
@@ -59,7 +57,7 @@ export default function Login(){
             </View>
         </View>
         <View style={styles.footer}>
-            <TouchableOpacity onPress={() => efetuarLogin} style={styles.button}><Text>Criar conta</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => efetuarLogin()} style={styles.button}><Text>Criar conta</Text></TouchableOpacity>
             <TouchableOpacity><Text>Esqueci minha senha</Text></TouchableOpacity>
         </View>
     </View>
