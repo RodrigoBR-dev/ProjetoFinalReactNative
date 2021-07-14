@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -8,26 +8,21 @@ import {
   MaterialIcons,
 } from "react-native-vector-icons";
 
-import StackRoutes from "./Stack.routes";
 import Home from "../Screens/Home";
 import Category from "../Screens/Category";
 import Favorite from "../Screens/Favorite";
 import MyAccount from "../Screens/MyAccount";
-import Header from "../components/Header";
+import Login from "../Screens/Login";
 
-// 
 const Tabs = createBottomTabNavigator();
 
 export default function TabRoutes() {
   return (
-
-    <NavigationContainer>
-      <Header />    
       <Tabs.Navigator
         initialRouteName="Home"
         tabBarOptions={{
           showLabel: false,
-          activeTintColor: "blue",
+          activeTintColor: "#F0C818",
         }}
       >
         <Tabs.Screen
@@ -57,20 +52,7 @@ export default function TabRoutes() {
             ),
           }}
         />
-        <Tabs.Screen
-          name="StackRoutes"
-          component={StackRoutes}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="account-circle"
-                color={color}
-                size={35}
-              />
-            ),
-          }}
-        />
-        {/* 
+        
         <Tabs.Screen
           name="MyAccount"
           component={MyAccount}
@@ -83,8 +65,7 @@ export default function TabRoutes() {
               />
             ),
           }}
-        /> */}
+        />
       </Tabs.Navigator>
-    </NavigationContainer>
   );
 }

@@ -2,33 +2,36 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    height: 150,
-    backgroundColor: "#FFBF00",
+    height: 170,
+    backgroundColor: "#ffff",
     alignItems: "center",
     justifyContent: "center",
+    borderWidth:1,
+    borderColor:"#F0C818"
   },
   boxSearch: {
-    flexDirection: "row" ,
+    flexDirection: "row",
     alignItems: "center",
     width: 260,
+    height: 29,
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: "black",
+    borderColor: "#DBDBDB",
     backgroundColor: "white",
-    marginRight: 40
-    
-},
+    marginRight:30,
+  },
   logo: {
-      marginBottom:15,
-      fontSize: 35,
+    marginBottom: 10,
+    width: 270,
+    height: 100,
   },
   inputStyle: {
-    width: 200,
-   
+    width: 65
   },
-  bag:{
-      marginLeft: 58,
-  }
+  bag: {
+    marginBottom:8,
+    marginLeft:180
+  },
 });
 
 export default styles;
