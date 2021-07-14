@@ -32,8 +32,14 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderBottomWidth: 2,
     borderColor: '#ddd',
-    marginBottom: 20,
+    marginBottom: 10,
     padding: 10,
+  },
+
+  checkContainer: {
+      alignItems: "center",
+      flexDirection: "row",
+      flexWrap: 'wrap',
   },
 
   button: {
