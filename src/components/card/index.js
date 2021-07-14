@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { View , Text, Image } from 'react-native';
 import styles from './styles';
 import money from '../../util/money'
-
 function Card(props){
 
     return(

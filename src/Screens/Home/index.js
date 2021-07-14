@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { View, FlatList, StatusBar } from "react-native";
+import { View, FlatList} from "react-native";
 import apiProduto from "../../service/apiProduto";
 import Produto from "../../model/produto";
 import Card from "../../components/card/index";
-
-import Header from "../../components/Header";
-
-
 import styles from "./styles";
 
 const Home = () => {

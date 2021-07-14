@@ -7,9 +7,17 @@ function buscarTodosProduto(nomeProduto){
     });
 
 }
-function searchCategory(nomeCategory){
+function searchCategory(){
         return new Promise((resolve,reject) => {
         api.get(`/categoria`)
+        .then(response => resolve(response))
+        .catch(error => reject(error))
+    });
+
+}
+function searchCategoryByName(nameCategory){
+        return new Promise((resolve,reject) => {
+        api.get(`/categoria/${nameCategory}`)
         .then(response => resolve(response))
         .catch(error => reject(error))
     });
@@ -18,5 +26,6 @@ function searchCategory(nomeCategory){
 
 export default{
     buscarTodosProduto,
-    searchCategory
+    searchCategory,
+    searchCategoryByName
 }
