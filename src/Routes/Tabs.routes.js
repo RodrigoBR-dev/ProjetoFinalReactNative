@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -12,12 +12,16 @@ import Home from "../Screens/Home";
 import Category from "../Screens/Category";
 import Favorite from "../Screens/Favorite";
 import MyAccount from "../Screens/MyAccount";
-import Login from "../Screens/Login";
+import Header from "../components/Header";
 
+// 
 const Tabs = createBottomTabNavigator();
 
 export default function TabRoutes() {
   return (
+
+    <NavigationContainer>
+      <Header />
       <Tabs.Navigator
         initialRouteName="Home"
         tabBarOptions={{
@@ -52,7 +56,6 @@ export default function TabRoutes() {
             ),
           }}
         />
-        
         <Tabs.Screen
           name="MyAccount"
           component={MyAccount}

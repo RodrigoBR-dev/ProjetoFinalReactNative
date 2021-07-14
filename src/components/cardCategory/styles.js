@@ -8,8 +8,7 @@ export default styles = StyleSheet.create({
         marginBottom:10,
     },
     card:{
-        width:"80%",
-        height:60,
+        width:160,
         backgroundColor:'#fff',
         borderRadius:15,
         margin:7,
@@ -19,8 +18,7 @@ export default styles = StyleSheet.create({
        
     },
     title:{
-        fontSize:18,
-        fontWeight:'bold'
+        fontWeight:'900',
     },
 
 })

@@ -7,7 +7,7 @@ function buscarTodosProduto(nomeProduto){
     });
 
 }
-function buscarCategoria(categoria){
+function searchCategory(nomeCategory){
         return new Promise((resolve,reject) => {
         api.get(`/categoria`)
         .then(response => resolve(response))
@@ -17,5 +17,6 @@ function buscarCategoria(categoria){
 }
 
 export default{
-    buscarTodosProduto
+    buscarTodosProduto,
+    searchCategory
 }
