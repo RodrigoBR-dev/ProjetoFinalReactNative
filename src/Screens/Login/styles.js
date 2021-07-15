@@ -6,7 +6,18 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
   },
-
+  boxTitle:{
+    backgroundColor:"red"
+  },
+  title: {
+    alignSelf:"flex-start",
+    marginLeft: "5%",
+    padding: "5%",
+    fontSize: 20,
+    textShadowColor: "#F0C818",
+    textShadowOffset: { width: 0.5, height: 0.5 },
+    textShadowRadius: 0.9,
+  },
   header: {
     flex: 1,
     width: "100%",
@@ -28,13 +39,9 @@ const styles = StyleSheet.create({
   },
 
   textInput: {
-    height: 40,
     width: "100%",
-    overflow: "hidden",
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     borderColor: "#ddd",
-    marginBottom: 10,
-    padding: 10,
   },
 
   checkContainer: {

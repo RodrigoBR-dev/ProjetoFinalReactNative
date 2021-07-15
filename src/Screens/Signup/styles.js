@@ -5,16 +5,22 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
   },
-
   header: {
-    flex: 1,
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
+    margin: 10,
+    alignSelf: "flex-start",
+    marginLeft: "10%",
+    textShadowOffset: { width: 0.9, height: 0.5 },
+    textShadowRadius: 0.9,
   },
-
+  title: {
+    fontSize: 20,
+    color: "black",
+    fontSize: 20,
+    textShadowColor: "#F0C818",
+    textShadowOffset: { width: 0.5, height: 0.5 },
+    textShadowRadius: 0.9,
+  },
   textContainer: {
-    flex: 1,
     width: "80%",
     justifyContent: "space-around",
   },
@@ -27,13 +33,11 @@ const styles = StyleSheet.create({
   },
 
   textInput: {
-    height: 40,
+    height: "6%",
     width: "100%",
-    overflow: "hidden",
-    borderBottomWidth: 2,
+    // overflow: "hidden",
+    borderBottomWidth: 1,
     borderColor: "#ddd",
-    marginBottom: 10,
-    padding: 10,
   },
 
   checkContainer: {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Header from "../../components/Header/index";
 import {
   View,
   TextInput,
@@ -14,22 +14,22 @@ import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Signup() {
-  const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [CPF, setCPF] = useState("");
   const [name, setName] = useState("");
   const [birthDate, setBirthDate] = useState("");
-
   const [isSelected, setSelection] = useState(false);
+  const navigation = useNavigation();
 
   const createAccount = () => {};
 
   return (
     <View style={styles.container}>
+      <Header isOnlyLogo />
       <View style={styles.header}>
-        <Text>Signup</Text>
+        <Text style={styles.title}>Criar Conta</Text>
       </View>
       <View style={styles.textContainer}>
         <TextInput
@@ -73,14 +73,18 @@ export default function Signup() {
         </View>
       </View>
       <View style={styles.footer}>
-        <TouchableOpacity onPress={() => createAccount()} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => createAccount()}
+          onPress={() => navigation.navigate("Address")}
+          style={styles.button}
+        >
           <Text>Criar conta</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+        <TouchableOpacity
+          style={styles.textFooter}
+          onPress={() => navigation.navigate("Login")}
+        >
           <Text>Já tenho uma conta</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text>Esqueci minha senha</Text>
         </TouchableOpacity>
       </View>
     </View>

@@ -9,6 +9,7 @@ import {
   Image,
 } from "react-native";
 
+
 import styles from "./styles";
 import apiLogin from "../../service/apiLogin";
 import asyncStorage from "../../service/asyncStorage";
@@ -49,6 +50,7 @@ export default function Login() {
   return (
     <View style={styles.container}>
       <Header isOnlyLogo />
+      <Text style={styles.title}>Login</Text>
       <View style={styles.textContainer}>
         <TextInput
           onChangeText={setEmail}
@@ -76,6 +78,7 @@ export default function Login() {
         <TouchableOpacity>
           <Text>Esqueci minha senha</Text>
         </TouchableOpacity>
+        
       </View>
     </View>
   );
