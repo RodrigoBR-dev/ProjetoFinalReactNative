@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { View, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import apiProduto from "../../service/apiProduto";
 import Produto from "../../model/produto";
 import Card from "../../components/card/index";
-import { MaterialIcons } from "react-native-vector-icons";
 import styles from "./styles";
 
 const Home = () => {
