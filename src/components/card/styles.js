@@ -20,11 +20,13 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
   },
   iconFavorite: {
-    padding: 10,
+    padding: 5,
     alignItems: "flex-end",
   },
   Titulo: {
-    fontWeight: "900",
+    textAlign: "center",
+    fontSize:15,
+    fontWeight: "900"
   },
   Imagem: {
     width: 100,
@@ -49,10 +51,10 @@ const styles = StyleSheet.create({
     padding: 3,
     textAlign: "center",
     textTransform: "uppercase",
-    color: "white",
-    textShadowColor: "black",
-    textShadowOffset: { width: 0.5, height: 0.5 },
-    textShadowRadius: 0.1,
+    color: "black",
+    textShadowColor: "white",
+    textShadowOffset: { width: 0.9, height: 0.9 },
+    textShadowRadius: 0.9,
     borderWidth:1,
     borderRadius:8,
     borderColor:"#F0DE18"
