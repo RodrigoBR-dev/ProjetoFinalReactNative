@@ -48,12 +48,21 @@ const armazenarUser = async (userName) => {
     } catch(e) {}
 }
 
+const storeFavorite = (favorite) => {
 
+    AsyncStorage.setItem("favorite", favorite)
+}
 
+const getFavorite = () => {
+   return AsyncStorage.getItem("favorite")
+
+}
 export default {
     armazenarPedido,
     buscaPedido,
     armazenaToken,
     obterToken,
-    armazenarUser
+    armazenarUser,
+    storeFavorite,
+    getFavorite,
 }
