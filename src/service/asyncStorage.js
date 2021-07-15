@@ -67,6 +67,15 @@ const removerNumeroPedido = () => {
     AsyncStorage.removeItem('Pedido');
 }
 
+const storeFavorite = (favorite) => {
+
+    AsyncStorage.setItem("favorite", favorite)
+}
+
+const getFavorite = () => {
+   return AsyncStorage.getItem("favorite")
+
+}
 export default {
     armazenarEstoque,
     obterEstoque,
@@ -75,6 +84,8 @@ export default {
     armazenarToken,
     obterToken,
     armazenarUser,
+    storeFavorite,
+    getFavorite,
     getUser,
     removerNumeroPedido,
     removeUser

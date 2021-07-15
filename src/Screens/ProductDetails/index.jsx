@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { View, Image, Text, ScrollView } from "react-native";
-import { useNavigation, useFocusEffect } from "@react-navigation/native";
+import { View, Image, Text, ScrollView, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import NumericInput from 'react-native-numeric-input'
-import { Feather, AntDesign } from "react-native-vector-icons";
+import { Feather, AntDesign, MaterialIcons } from "react-native-vector-icons";
 
 import { styles } from "./styles";
 import { Button } from "../../components/Button";
@@ -60,6 +60,9 @@ export default function ProductDetails({ route }) {
     <ScrollView>
       <Header isDetailsPage />
       <View style={styles.container}>
+        <TouchableOpacity onPress={()=>(asyncStorage.storeFavorite(name))}>
+        <MaterialIcons name="favorite" size={50} />
+        </TouchableOpacity>
         <Image style={styles.image} source={{ uri: image }} />
 
         <View style={styles.detailsContainer}>
