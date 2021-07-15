@@ -14,19 +14,19 @@ const MyAccount = ({ navigation }) => {
         style={styles.boxOption}
         onPress={() => navigation.navigate("Login")}
       >
-        <MaterialIcons name="login" size={50} color="#F0C818" />
+        <MaterialIcons name="login" size={40} color="#F0C818" />
         <Text style={styles.textOption}>Entrar</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.boxOption}
       >
-        <MaterialIcons name="help-outline" size={50} color="#F0C818" />
+        <MaterialIcons name="help-outline" size={40} color="#F0C818" />
         <Text style={styles.textOption}>Ajuda/FAQ</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.boxOption}
       >
-        <Ionicons name="settings" size={50} color="#F0C818" />
+        <Ionicons name="settings" size={40} color="#F0C818" />
         <Text style={styles.textOption}>Ajuda/FAQ</Text>
       </TouchableOpacity>
     </View>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, ScrollView } from "react-native";
 import apiProduto from "../../service/apiProduto";
 import Produto from "../../model/produto";
 import Card from "../../components/card/index";
@@ -28,16 +28,16 @@ const Home = () => {
   }, []);
 
   return (
-    <View>
-      <Header isDetailsPage />
-      <FlatList
-        data={produtos}
-        keyExtractor={(item) => item.nome}
-        numColumns={2}
-        renderItem={renderProduto}
-        contentContainerStyle={styles.container}
-      />
-    </View>
+      <View>
+        <Header isDetailsPage />
+        <FlatList
+          data={produtos}
+          keyExtractor={(item) => item.nome}
+          numColumns={2}
+          renderItem={renderProduto}
+          contentContainerStyle={styles.container}
+        />
+      </View>
   );
 };
 
