@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import TabRoutes from "./Tabs.routes";
 import Login from "../Screens/Login";
+import Signup from "../Screens/Signup";
 import ProductDetails from "../Screens/ProductDetails";
 
 const Stack = createStackNavigator();
@@ -16,6 +17,7 @@ export default function StackRoutes() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="ProductDetails" component={ProductDetails} />
         <Stack.Screen name="TabRoutes" component={TabRoutes} />
       </Stack.Navigator>

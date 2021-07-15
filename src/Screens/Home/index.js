@@ -25,19 +25,16 @@ const Home = () => {
 
   useEffect(() => {
     handleProdutos();
-  }, [produtos]);
+  }, []);
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        style={styles.CardContainer}
-        data={produtos}
-        keyExtractor={(item) => item.nome}
-        numColumns={2}
-        renderItem={renderProduto}
-        i
-      />
-    </View>
+    <FlatList
+      data={produtos}
+      keyExtractor={(item) => item.nome}
+      numColumns={2}
+      renderItem={renderProduto}
+      contentContainerStyle={styles.container}
+    />
   );
 };
 
