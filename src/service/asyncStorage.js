@@ -1,21 +1,28 @@
 import AsyncStorage  from '@react-native-async-storage/async-storage'
 
-const armazenarPedido = (nomeProduto,quantidade) => {
-    AsyncStorage.setItem('nomeProduto', nomeProduto);
-    AsyncStorage.setItem('quantidade',quantidade);
-}
+const armazenarEstoque = (nomeProduto,quantidade) => {
+    AsyncStorage.setItem(nomeProduto, quantidade);
+};
 
-const buscaUser = async (user) => {
-    return AsyncStorage.getItem('user');
-}
+const obterEstoque = async (nomeProduto) => {
+    return AsyncStorage.getItem(nomeProduto);
+};
 
-const buscaPedido = async (nomeProduto, quantidade) => {
-    const nome = await AsyncStorage.getItem('nomeProduto'); 
-    const quant = await AsyncStorage.getItem('quantidade'); 
-    return [nome,quant];
-}
+const armazenarNumeroPedido = async (pedido) => {
+    try{
+        AsyncStorage.setItem('Pedido', pedido)
+    } catch(e) {console.log(e)}
+};
 
-const armazenaToken = async (token) => {
+const obterNumeroPedido = async () => {
+    try{
+        let pedido = AsyncStorage.getItem('Pedido');
+        if (pedido) {return pedido}
+        console.log('passou do if pedido')
+    } catch(e) {console.log(e)}
+};
+
+const armazenarToken = async (token) => {
     try{
         let expires = new Date().getTime() + (3600000);
         AsyncStorage.setItem("token" , JSON.stringify({ 
@@ -33,7 +40,7 @@ const obterToken = async () => {
             return token.expires <= currentDate ? logout() : token.value;
         }
     } catch(e) {}
-}
+};
 
 const logout = async () => {
     try {
@@ -46,14 +53,29 @@ const armazenarUser = async (userName) => {
     try {
         await AsyncStorage.setItem("userName" , userName)
     } catch(e) {}
+};
+
+const getUser = async () => {
+    return AsyncStorage.getItem('userName');
+};
+
+const removeUser = async () => {
+    AsyncStorage.removeItem('userName');
 }
 
-
+const removerNumeroPedido = () => {
+    AsyncStorage.removeItem('Pedido');
+}
 
 export default {
-    armazenarPedido,
-    buscaPedido,
-    armazenaToken,
+    armazenarEstoque,
+    obterEstoque,
+    armazenarNumeroPedido,
+    obterNumeroPedido,
+    armazenarToken,
     obterToken,
-    armazenarUser
+    armazenarUser,
+    getUser,
+    removerNumeroPedido,
+    removeUser
 }

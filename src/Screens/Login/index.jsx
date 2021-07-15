@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   Text,
   CheckBox,
-  Image,
 } from "react-native";
 
 import styles from "./styles";
@@ -17,25 +16,27 @@ import { useNavigation } from "@react-navigation/native";
 
 import Header from "../../components/Header";
 
-export default function Login() {
+export default function Login({route}) {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [isSelected, setSelection] = useState(false);
+  const { back } = route.params;
 
   const efetuarLogin = () => {
     if (!email || !senha) {
       alert("Favor informar e-mail e senha");
       return <></>;
     }
-    console.log();
+
     apiLogin
       .logar(email, senha)
       .then((resposta) => {
         const token = resposta.data[0].Authorization;
         const user = resposta.data[1].userName;
-        asyncStorage.armazenaToken(token);
+        asyncStorage.armazenarToken(token);
         asyncStorage.armazenarUser(user);
+        back === 'ProductDetails' ? navigation.goBack() : null;
       })
       .catch((error) => {
         let erroStatus = error.response.status;

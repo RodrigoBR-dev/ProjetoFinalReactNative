@@ -1,7 +1,7 @@
 import api from "./api";
 
 function create(email, userName, password, name, cpf, phoneNumber, birthDate) {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     return api
       .post("/cliente", {
         email,
