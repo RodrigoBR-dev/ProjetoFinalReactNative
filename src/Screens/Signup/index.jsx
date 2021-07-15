@@ -13,9 +13,12 @@ import styles from "./styles";
 
 import { useNavigation } from "@react-navigation/native";
 
+import apiCreateUser from "../../service/apiCreateUser";
+
 export default function Signup() {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [CPF, setCPF] = useState("");
@@ -24,7 +27,21 @@ export default function Signup() {
 
   const [isSelected, setSelection] = useState(false);
 
-  const createAccount = () => {};
+  const createAccount = () => {
+    // console.log(email, username, password, name, CPF, phoneNumber, birthDate);
+    apiCreateUser
+      .create(email, username, password, name, CPF, phoneNumber, birthDate)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error(error);
+        let erroStatus = error.response.status;
+        if (erroStatus == 403) {
+          alert("Usuário ou senha inválido");
+        }
+      });
+  };
 
   return (
     <View style={styles.container}>
@@ -45,6 +62,11 @@ export default function Signup() {
         <TextInput
           onChangeText={setName}
           placeholder="Nome"
+          style={styles.textInput}
+        />
+        <TextInput
+          onChangeText={setPhoneNumber}
+          placeholder="Telefone"
           style={styles.textInput}
         />
         <TextInput
