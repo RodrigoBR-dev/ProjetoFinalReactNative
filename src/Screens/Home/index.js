@@ -3,8 +3,8 @@ import { View, FlatList } from "react-native";
 import apiProduto from "../../service/apiProduto";
 import Produto from "../../model/produto";
 import Card from "../../components/card/index";
-import { MaterialIcons } from "react-native-vector-icons";
 import styles from "./styles";
+import Header from "../../components/Header";
 
 const Home = () => {
   const [produtos, setProdutos] = useState([]);
@@ -28,13 +28,16 @@ const Home = () => {
   }, []);
 
   return (
-    <FlatList
-      data={produtos}
-      keyExtractor={(item) => item.nome}
-      numColumns={2}
-      renderItem={renderProduto}
-      contentContainerStyle={styles.container}
-    />
+    <View>
+      <Header isDetailsPage />
+      <FlatList
+        data={produtos}
+        keyExtractor={(item) => item.nome}
+        numColumns={2}
+        renderItem={renderProduto}
+        contentContainerStyle={styles.container}
+      />
+    </View>
   );
 };
 

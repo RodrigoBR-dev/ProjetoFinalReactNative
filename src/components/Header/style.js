@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   boxSearch: {
     flexDirection: "row",
     alignItems: "center",
-    width: 260,
+    width: "77%",
     height: 29,
     borderWidth: 1,
     borderRadius: 10,
@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
     marginRight: 30,
   },
   logo: {
-    marginBottom: 10,
-    width: 270,
-    height: 100,
+    margin: "5%",
+    width: "80%",
+    height: "50%",
   },
   inputStyle: {
-    width: 65,
+    width: "30%",
   },
   bag: {
     marginBottom: 8,
