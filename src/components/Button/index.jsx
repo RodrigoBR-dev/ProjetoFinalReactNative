@@ -14,7 +14,7 @@ export function Button({ big }) {
       value="COMPRAR"
     >
       <Text
-        style={[styles.textButton, big ? { fontSize: 20 } : { fontSIze: 16 }]}
+        style={[styles.textButton, big ? { fontSize: 20 } : { fontSize: 16 }]}
       >
         Comprar
       </Text>
