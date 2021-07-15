@@ -36,7 +36,7 @@ export default function Login({route}) {
         const user = resposta.data[1].userName;
         asyncStorage.armazenarToken(token);
         asyncStorage.armazenarUser(user);
-        back === 'ProductDetails' ? navigation.goBack() : null;
+        back === 'ProductDetails' ? navigation.goBack() : navigation.navigate("MyAccount");
       })
       .catch((error) => {
         let erroStatus = error.response.status;

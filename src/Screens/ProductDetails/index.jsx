@@ -27,7 +27,8 @@ export default function ProductDetails({ route }) {
   }, [navigation])
 
   const getStates = async () => {
-    setProduct(await apiProduto.searchProductByName(name));
+    let prod = await apiProduto.searchProductByName(name)
+    setProduct(prod.data);
     setPedido(await asyncStorage.obterNumeroPedido());
     setUser(await asyncStorage.getUser());
   }
@@ -42,12 +43,13 @@ export default function ProductDetails({ route }) {
 
   async function createPedido() {
     let address = 'casa';
-    await apiPedido.create(user, address, product, quantity)
-        .then(answer => {
-            asyncStorage.armazenarNumeroPedido(answer.data.numeroDoPedido);
-            asyncStorage.armazenarEstoque(product.nome, product.quantEstoque);
-      });
-      navigation.navigate('Home');
+    console.log(user, address, product.nome, quantity);
+    // await apiPedido.create(user, address, product.nome, quantity)
+    //     .then(answer => {
+    //         asyncStorage.armazenarNumeroPedido(answer.data.numeroDoPedido);
+    //         asyncStorage.armazenarEstoque(product.nome, product.quantEstoque);
+    //   });
+    //   navigation.navigate('Home');
   }
 
   function updatePedido() {
