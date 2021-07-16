@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,11 +8,19 @@ export const styles = StyleSheet.create({
 
   flat: {
     flex: 3,
-    padding: 5,
-    backgroundColor: '#EDF3FF',
+    paddingHorizontal: 10,
+  },
+  paragraph: {
+    fontSize: 18,
   },
 
   info: {
     flex: 1,
+    paddingHorizontal: 50,
+    justifyContent: "space-around",
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 });
