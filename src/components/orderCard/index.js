@@ -12,13 +12,14 @@ export default function OrderCard({name, image, price, quantity}) {
     const [stock, setStock] = useState(0);
     const [amount, setAmount] = useState(quantity);
     const [total, setTotal] = useState('')
-
+  
     useEffect(() => {
         getStock()
     }, [])
 
     useEffect(() => {
-        setTotal(parseFloat(price*amount))
+        
+        setTotal(money.formatarParaReal(parseFloat(price*amount)))
     }, [amount])
 
     async function getStock() {
@@ -39,7 +40,7 @@ export default function OrderCard({name, image, price, quantity}) {
                 totalHeight={50} 
                 type={'up-down'}
                 rounded/>
-            <Text>{money.formatarParaReal(total)}</Text>
+            <Text>{total}</Text>
         </View>
     );
 }

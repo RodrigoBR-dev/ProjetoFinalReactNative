@@ -24,7 +24,7 @@ function searchCategory(){
     });
 }
 
-function searchCategoryByName(nameCategory){
+function searchProductByCategory(nameCategory){
         return new Promise((resolve,reject) => {
         api.get(`/categoria/${nameCategory}`)
         .then(response => resolve(response))
@@ -36,5 +36,5 @@ export default {
     buscarTodosProduto,
     searchProductByName,
     searchCategory,
-    searchCategoryByName
+    searchProductByCategory
 }
