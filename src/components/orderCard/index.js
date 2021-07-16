@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import NumericInput from 'react-native-numeric-input'
 
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 import { styles } from './styles';
 import money from '../../util/money'
 import asyncStorage from '../../service/asyncStorage';
 
-export default function OrderCard({name, pic, price, quantity}) {
+export default function OrderCard({name, image, price, quantity}) {
 
     const [stock, setStock] = useState(0);
     const [amount, setAmount] = useState(quantity);
@@ -18,7 +18,7 @@ export default function OrderCard({name, pic, price, quantity}) {
     }, [])
 
     useEffect(() => {
-        setTotal(price*amount)
+        setTotal(parseFloat(price*amount))
     }, [amount])
 
     async function getStock() {
@@ -27,7 +27,7 @@ export default function OrderCard({name, pic, price, quantity}) {
 
     return (
         <View style={styles.card}>
-            {/* <Image style={styles.image} source={{ uri: pic }} /> */}
+            <Image style={styles.image} source={{ uri: image }} />
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.price}>{money.formatarParaReal(price)}</Text>
             <NumericInput 

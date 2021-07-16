@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   card: {
+      
       width: '100%',
       height: 80,
       marginTop: 10,
@@ -12,7 +13,7 @@ export const styles = StyleSheet.create({
   },
 
   image: {
-      width: 30,
+      width: '10%',
       height: 30,
   },
 });
