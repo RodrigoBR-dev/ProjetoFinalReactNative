@@ -1,10 +1,14 @@
 import React from "react";
-import { View, Image, TextInput } from "react-native";
+import { View, Image, TextInput, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { EvilIcons, FontAwesome5 } from "react-native-vector-icons";
 
 import styles from "./style";
 
 const Header = ({ isDetailsPage, isOnlyLogo }) => {
+
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Image
@@ -24,12 +28,13 @@ const Header = ({ isDetailsPage, isOnlyLogo }) => {
             autoCorrect={false}
             placeholder="Procurar"
           />
-
+          <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
           <FontAwesome5
             style={[styles.bag, isDetailsPage && { color: "#FF2418" }]}
             name="shopping-bag"
             size={29}
           />
+          </TouchableOpacity>
         </View>
       )}
     </View>

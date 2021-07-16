@@ -6,6 +6,7 @@ import TabRoutes from "./Tabs.routes";
 import Login from "../Screens/Login";
 import Signup from "../Screens/Signup";
 import ProductDetails from "../Screens/ProductDetails";
+import Cart from "../Screens/Cart";
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export default function StackRoutes() {
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="ProductDetails" component={ProductDetails} />
         <Stack.Screen name="TabRoutes" component={TabRoutes} />
+        <Stack.Screen name="Cart" component={Cart} />
       </Stack.Navigator>
     </NavigationContainer>
   );
