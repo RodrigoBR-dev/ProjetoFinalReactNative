@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { View, Text, Button, TouchableOpacity } from "react-native";
+import React, { useState, useCallback } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 import { MaterialIcons, Ionicons } from "react-native-vector-icons";
 
 import Header from "../../components/Header";
@@ -37,13 +37,20 @@ const MyAccount = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header isOnlyLogo />
-      <TouchableOpacity
-        style={styles.boxOption}
-        onPress={() => navigation.navigate("Login")}
-      >
-        <MaterialIcons name="login" size={40} color="#F0C818" />
-        <Text style={styles.textOption}>Entrar</Text>
-      </TouchableOpacity>
+      {user ? (
+        <TouchableOpacity style={styles.boxOption} onPress={removeUser}>
+          <MaterialIcons name="login" size={40} color="#F0C818" />
+          <Text style={styles.textOption}>Logout</Text>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity
+          style={styles.boxOption}
+          onPress={() => navigation.navigate("Login", { back: "MyAccount" })}
+        >
+          <MaterialIcons name="login" size={40} color="#F0C818" />
+          <Text style={styles.textOption}>Entrar</Text>
+        </TouchableOpacity>
+      )}
       <TouchableOpacity style={styles.boxOption}>
         <MaterialIcons name="help-outline" size={40} color="#F0C818" />
         <Text style={styles.textOption}>Ajuda/FAQ</Text>
