@@ -133,7 +133,7 @@ export default function ProductDetails({ route }) {
               totalHeight={40}
               rounded
             />
-            <Button onPress={() => loginTest()} big />
+            <Button title="Comprar" onPress={() => loginTest()} big />
           </View>
         </View>
         <View style={styles.description}>
