@@ -4,7 +4,7 @@ import { Text, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
 
-export function Button({ big, ...rest }) {
+export function Button({ title, big, ...rest }) {
   return (
     <TouchableOpacity
       {...rest}
@@ -17,7 +17,7 @@ export function Button({ big, ...rest }) {
       <Text
         style={[styles.textButton, big ? { fontSize: 20 } : { fontSize: 16 }]}
       >
-        Comprar
+        {title}
       </Text>
     </TouchableOpacity>
   );
