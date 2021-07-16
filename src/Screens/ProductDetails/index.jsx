@@ -97,12 +97,12 @@ export default function ProductDetails({ route }) {
       <Header isDetailsPage />
       <View style={styles.container}>
         {duplicate ? (
-          <MaterialIcons name="favorite" size={50} color="#555" />
+          <MaterialIcons name="favorite" size={50} color="#f24018" />
         ) : (
           <TouchableOpacity
             onPress={() => handleFavorite(name, price, image, description)}
           >
-            <MaterialIcons name="favorite" size={50} color="#f24018" />
+            <MaterialIcons name="favorite" size={50} color="#555" />
           </TouchableOpacity>
         )}
         <Image style={styles.image} source={{ uri: image }} />

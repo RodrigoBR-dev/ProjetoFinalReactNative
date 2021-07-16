@@ -57,7 +57,7 @@ const MyAccount = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity style={styles.boxOption}>
         <Ionicons name="settings" size={40} color="#F0C818" />
-        <Text style={styles.textOption}>Ajuda/FAQ</Text>
+        <Text style={styles.textOption}>Configurações</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.boxOption} onPress={clearFavorites}>
         <MaterialIcons name="favorite" size={40} color="#F0C818" />

@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent:"center"
+    justifyContent: "center",
   },
   header: {
     margin: 10,
@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     width: "80%",
     justifyContent: "space-around",
   },
-
   footer: {
     flex: 1,
     alignItems: "center",
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
   },
 
   textInput: {
-    height: 40,//trabalhar altura com pixel para não da diferença na hora de abrir o teclado
+    height: 40, //trabalhar altura com pixel para não da diferença na hora de abrir o teclado
     width: "100%",
     // overflow: "hidden",
     borderBottomWidth: 1,
