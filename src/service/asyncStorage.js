@@ -15,11 +15,7 @@ const armazenarNumeroPedido = async (pedido) => {
 };
 
 const obterNumeroPedido = async () => {
-    try{
-        let pedido = AsyncStorage.getItem('Pedido');
-        if (pedido) {return pedido}
-        console.log('passou do if pedido')
-    } catch(e) {console.log(e)}
+    return AsyncStorage.getItem('Pedido')
 };
 
 const armazenarToken = async (token) => {

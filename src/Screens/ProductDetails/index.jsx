@@ -43,17 +43,20 @@ export default function ProductDetails({ route }) {
 
   async function createPedido() {
     let address = 'casa';
-    console.log(user, address, product.nome, quantity);
-    // await apiPedido.create(user, address, product.nome, quantity)
-    //     .then(answer => {
-    //         asyncStorage.armazenarNumeroPedido(answer.data.numeroDoPedido);
-    //         asyncStorage.armazenarEstoque(product.nome, product.quantEstoque);
-    //   });
-    //   navigation.navigate('Home');
+    await apiPedido.create(user, address, product.nome, quantity)
+        .then(answer => {
+            asyncStorage.armazenarNumeroPedido(String(answer.data.numeroDoPedido));
+            asyncStorage.armazenarEstoque(product.nome, String(product.quantEstoque));
+      });
+      navigation.navigate('Home');
   }
 
-  function updatePedido() {
-    console.log('Atualizar pedido: ' + pedido)
+  async function updatePedido() {
+    await apiPedido.update(pedido, product.nome, quantity)
+        .then(answer => {
+            asyncStorage.armazenarEstoque(product.nome, String(product.quantEstoque));
+        })
+        navigation.navigate('Home');
   }
 
   return (
@@ -84,11 +87,11 @@ export default function ProductDetails({ route }) {
           <View>
             <NumericInput 
               value={quantity} 
+              onChange={valor => setQuantity(valor)}
+              minValue={1}
               totalWidth={140} 
               totalHeight={40} 
-              rounded 
-              valueType='real'
-              onChange={valor => setQuantity(valor)} />
+              rounded/>
             <Button onPress={() => loginTest()} big />
           </View>
         </View>
