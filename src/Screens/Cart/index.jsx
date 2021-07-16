@@ -19,6 +19,7 @@ export default function Cart() {
   const [delivery, setDelivery] = useState(0);
   const [deliveryDate, setDeliveryDate] = useState("");
   const [productsValue, setProductsValue] = useState(0);
+  const [totalValue,setTotalValue] = useState(0);
 
   useEffect(() => {
     getOrderNumber();
@@ -60,7 +61,7 @@ export default function Cart() {
         contentContainerStyle={styles.flat}
       />
       <View style={styles.info}>
-        <Text style={styles.paragraph}>Valor total da compra: </Text>
+        <Text style={styles.paragraph}>Valor total da compra:{totalValue} </Text>
         <View style={styles.buttonContainer}>
           <Button
             big

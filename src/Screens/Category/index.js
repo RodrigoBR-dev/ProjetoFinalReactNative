@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from 'react';
 import { FlatList, View , Text, TouchableOpacity} from 'react-native';
 
+import { MaterialIcons } from "react-native-vector-icons";
 import Header from '../../components/Header'; //add header com input de busca
 import Produto from "../../model/produto";
 import apiProduto from '../../service/apiProduto';
@@ -20,9 +21,10 @@ const Category = () => {
     
     const handleProducts = async (categoria) => {
       setCategorySelected(true)
-      const resposta = await apiProduto.buscarTodosProduto();
-      setProducts(resposta.data.map((produto) => new Produto(produto)));
-      console.log(products.filter((produto) => (produto.categoria  == categoria )))
+      const produtos = await apiProduto.buscarTodosProduto()
+      .then((res) => res.data)     
+      setProducts(produtos.map((produto) => new Produto(produto)).filter((p) => p.categoria == categoria))
+
      
     };
 
@@ -35,27 +37,39 @@ const Category = () => {
     <View >
       <Header isDetailsPage/>
       {categorySelected?
-       <FlatList
-       data={products}
-       keyExtractor={ (item,index) => String(index) }
-       renderItem={({item}) => {
-        // console.log(item) 
-        return(
-          <Card
-          name={item.nome}
-          price={item.preco}
-          image={item.url}
-          description={item.descricao}
+      <View>
+        <TouchableOpacity onPress={() => setCategorySelected(false)}>
+        <MaterialIcons
+
+            name="keyboard-backspace"
+            size={20}
+            color="#F0C818"
           />
-          )
-       }}
-       />
+        </TouchableOpacity>
+          <FlatList
+          data={products}
+          keyExtractor={ (item,index) => String(index) }
+          renderItem={({item}) => {
+            // console.log(item) 
+            return(
+              
+              <Card
+              name={item.nome}
+              price={item.preco}
+              image={item.url}
+              description={item.descricao}
+              />
+
+              )
+          }}
+          />
+       </View>
        :
         <FlatList
         data={category}
         keyExtractor={ (item,index) => String(index) }
         renderItem={({item}) => (
-          <TouchableOpacity onPress={() => handleProducts(item.categoria) } style={styles.container}>
+          <TouchableOpacity onPress={() => handleProducts(item.nome) } style={styles.container}>
               <View style={styles.card}>
                 <Text style={styles.title}>{item.nome}</Text>
               </View>
