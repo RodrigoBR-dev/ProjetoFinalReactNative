@@ -11,14 +11,14 @@ import Home from "../Screens/Home";
 import Category from "../Screens/Category";
 import Favorite from "../Screens/Favorite";
 import MyAccount from "../Screens/MyAccount";
-import Header from "../components/Header";
+// import Header from "../components/Header"; //tirado da rota para não repetir no myAccount
+
 
 const Tabs = createBottomTabNavigator();
 
 export default function TabRoutes() {
   return (
     <>
-      <Header />
       <Tabs.Navigator
         initialRouteName="Home"
         tabBarOptions={{

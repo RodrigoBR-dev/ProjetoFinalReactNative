@@ -1,6 +1,8 @@
 import React, { useState , useEffect} from 'react';
 import { FlatList, View , Text} from 'react-native';
 
+import Header from '../../components/Header'; //add header com input de busca
+
 import apiProduto from '../../service/apiProduto';
 import CardCategory from '../../components/cardCategory/index';
 import styles from './styles';
@@ -25,6 +27,7 @@ const Category = () => {
 
   return (
     <View >
+      <Header isDetailsPage/>
         <FlatList
         data={category}
         keyExtractor={ (item,index) => String(index) }

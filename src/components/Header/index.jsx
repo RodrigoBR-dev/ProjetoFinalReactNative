@@ -26,7 +26,7 @@ const Header = ({ isDetailsPage, isOnlyLogo }) => {
           />
 
           <FontAwesome5
-            style={[styles.bag, isDetailsPage && { color: "#FF2418" }]}
+            style={[styles.bag, isDetailsPage && { color: "#000000" }]}
             name="shopping-bag"
             size={29}
           />

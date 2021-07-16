@@ -17,7 +17,10 @@ const Favorite = () => {
  
   return (
     <View style={styles.container}>
-      <Text style={styles.texto}>Sou um favotiro</Text>
+      <Header isDetailsPage />
+      <View style={styles.container}>
+        <Text style={styles.texto}>Sou um favotiro</Text>
+      </View>
     </View>
   );
 };

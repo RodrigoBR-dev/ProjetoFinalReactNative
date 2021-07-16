@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Header from "../../components/Header/index";
 import {
   View,
   TextInput,
@@ -16,7 +16,6 @@ import { useNavigation } from "@react-navigation/native";
 import apiCreateUser from "../../service/apiCreateUser";
 
 export default function Signup() {
-  const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [username, setUsername] = useState("");
@@ -24,8 +23,8 @@ export default function Signup() {
   const [CPF, setCPF] = useState("");
   const [name, setName] = useState("");
   const [birthDate, setBirthDate] = useState("");
-
   const [isSelected, setSelection] = useState(false);
+  const navigation = useNavigation();
 
   const createAccount = () => {
     // console.log(email, username, password, name, CPF, phoneNumber, birthDate);
@@ -45,8 +44,9 @@ export default function Signup() {
 
   return (
     <View style={styles.container}>
+      <Header isOnlyLogo />
       <View style={styles.header}>
-        <Text>Signup</Text>
+        <Text style={styles.title}>Criar Conta</Text>
       </View>
       <View style={styles.textContainer}>
         <TextInput
@@ -95,14 +95,18 @@ export default function Signup() {
         </View>
       </View>
       <View style={styles.footer}>
-        <TouchableOpacity onPress={() => createAccount()} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => createAccount()}
+          onPress={() => navigation.navigate("Address")}
+          style={styles.button}
+        >
           <Text>Criar conta</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+        <TouchableOpacity
+          style={styles.textFooter}
+          onPress={() => navigation.navigate("Login")}
+        >
           <Text>Já tenho uma conta</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text>Esqueci minha senha</Text>
         </TouchableOpacity>
       </View>
     </View>
