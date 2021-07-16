@@ -19,7 +19,7 @@ const Favorite = () => {
     
   }
   
-  const renderFavorite = async () => {
+  const renderFavorite = async() => {
     console.log(nameProduct)
     const resposta = await apiProduto.searchProductByName(nameProduct)
     setProduct(resposta.data.map((produto) => new 
