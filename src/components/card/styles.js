@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   Titulo: {
+    marginTop: 10,
+    marginBottom: 5,
     textAlign: "center",
     width: 160,
   },

@@ -20,18 +20,9 @@ function Card({ name, price, image, description }) {
       style={styles.Card}
       onPress={() => handleProductDetails()}
     >
-      {/* <TouchableOpacity style={styles.boxIcon}>
-        <MaterialIcons
-            style={styles.iconFavorite}
-            name="favorite"
-            size={30}
-            color="#E80510"
-          />
-      </TouchableOpacity> */}
       <Image style={styles.Imagem} source={{ uri: image }} />
       <Text style={styles.Titulo}>{name}</Text>
       <Text style={styles.Info}>{money.formatarParaReal(price)}</Text>
-      <Button />
     </TouchableOpacity>
   );
 }

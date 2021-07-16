@@ -3,7 +3,6 @@ import { View, Text, Button, TouchableOpacity } from "react-native";
 import { MaterialIcons, Ionicons } from "react-native-vector-icons";
 
 import Header from "../../components/Header";
-// import { Container } from './styles';
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 

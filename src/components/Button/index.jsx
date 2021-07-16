@@ -4,10 +4,10 @@ import { Text, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
 
-export function Button({ big, onPress }) {
+export function Button({ big, ...rest }) {
   return (
     <TouchableOpacity
-      onPress={onPress}
+      {...rest}
       style={[
         styles.button,
         big ? { width: 140, height: 60 } : { width: 100, height: 30 },

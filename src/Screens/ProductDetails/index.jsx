@@ -33,7 +33,7 @@ export default function ProductDetails({ route }) {
     setUser(await asyncStorage.getUser());
   }
 
-  async function loginTest() {
+  function loginTest() {
     user ? buy() : navigation.navigate('Login', {back:'ProductDetails'});
   }
   
@@ -92,7 +92,7 @@ export default function ProductDetails({ route }) {
               maxValue={product.quantEstoque}
               totalWidth={140} 
               totalHeight={40} 
-              rounded/>
+              rounded/> 
             <Button onPress={() => loginTest()} big />
           </View>
         </View>

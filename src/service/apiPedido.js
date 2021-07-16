@@ -18,6 +18,15 @@ function update(numeroDoPedido, produto, quantidade) {
     });
 }
 
-const apiPedido = {create, update};
+function get(numeroDoPedido) {
+    return new Promise(async (resolve, reject) => {
+        return api
+            .get('/pedido/' + numeroDoPedido)
+            .then((response) => resolve(response))
+            .catch((error) => reject(error))
+    });
+}
+
+const apiPedido = {create, update, get};
 
 export default apiPedido;
