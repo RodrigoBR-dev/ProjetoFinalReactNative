@@ -8,7 +8,6 @@ import {
   CheckBox,
 } from "react-native";
 
-
 import styles from "./styles";
 import apiLogin from "../../service/apiLogin";
 import asyncStorage from "../../service/asyncStorage";
@@ -17,7 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import Header from "../../components/Header";
 
-export default function Login({route}) {
+export default function Login({ route }) {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -37,7 +36,9 @@ export default function Login({route}) {
         const user = resposta.data[1].userName;
         asyncStorage.armazenarToken(token);
         asyncStorage.armazenarUser(user);
-        back === 'ProductDetails' ? navigation.goBack() : navigation.navigate("MyAccount");
+        back === "ProductDetails"
+          ? navigation.goBack()
+          : navigation.navigate("MyAccount");
       })
       .catch((error) => {
         let erroStatus = error.response.status;
@@ -79,7 +80,6 @@ export default function Login({route}) {
         <TouchableOpacity>
           <Text>Esqueci minha senha</Text>
         </TouchableOpacity>
-        
       </View>
     </View>
   );

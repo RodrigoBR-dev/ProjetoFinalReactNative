@@ -1,11 +1,8 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import { MaterialIcons } from "react-native-vector-icons";
 
 import styles from "./styles";
 import money from "../../util/money";
-
-import { Button } from "../Button";
 
 import { useNavigation } from "@react-navigation/native";
 
