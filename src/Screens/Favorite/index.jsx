@@ -49,7 +49,6 @@ const Favorite = () => {
           keyExtractor={(item) => item.name}
           numColumns={2}
           renderItem={({ item }) => {
-            console.log(item);
             return (
               <Card
                 name={item.nome}

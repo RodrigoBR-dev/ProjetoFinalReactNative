@@ -1,27 +1,56 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, Button, TouchableOpacity } from "react-native";
 import { MaterialIcons, Ionicons } from "react-native-vector-icons";
 
 import Header from "../../components/Header";
 import styles from "./styles";
 
+import { useFocusEffect } from "@react-navigation/native";
 import asyncStorage from "../../service/asyncStorage";
 
 const MyAccount = ({ navigation }) => {
-  function clearFavorites() {
-    asyncStorage.removeFavorite();
+  const [user, setUser] = useState(false);
+  async function clearFavorites() {
+    await asyncStorage.removeFavorite();
   }
+
+  async function removeUser() {
+    await asyncStorage.removeUser();
+    navigation.navigate("Home");
+  }
+
+  async function getUser() {
+    const session = await asyncStorage.getUser();
+    if (session) {
+      setUser(true);
+    } else {
+      setUser(false);
+    }
+  }
+
+  useFocusEffect(
+    useCallback(() => {
+      getUser();
+    })
+  );
 
   return (
     <View style={styles.container}>
       <Header isOnlyLogo />
-      <TouchableOpacity
-        style={styles.boxOption}
-        onPress={() => navigation.navigate("Login", { back: "MyAccount" })}
-      >
-        <MaterialIcons name="login" size={40} color="#F0C818" />
-        <Text style={styles.textOption}>Entrar</Text>
-      </TouchableOpacity>
+      {user ? (
+        <TouchableOpacity style={styles.boxOption} onPress={removeUser}>
+          <MaterialIcons name="login" size={40} color="#F0C818" />
+          <Text style={styles.textOption}>Logout</Text>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity
+          style={styles.boxOption}
+          onPress={() => navigation.navigate("Login", { back: "MyAccount" })}
+        >
+          <MaterialIcons name="login" size={40} color="#F0C818" />
+          <Text style={styles.textOption}>Entrar</Text>
+        </TouchableOpacity>
+      )}
 
       <TouchableOpacity style={styles.boxOption}>
         <MaterialIcons name="help-outline" size={40} color="#F0C818" />
