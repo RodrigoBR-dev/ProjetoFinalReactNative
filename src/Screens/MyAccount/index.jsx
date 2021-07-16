@@ -17,7 +17,7 @@ const MyAccount = ({ navigation }) => {
       <Header isOnlyLogo />
       <TouchableOpacity
         style={styles.boxOption}
-        onPress={() => navigation.navigate("Login", { back: "MyAccount" })}
+        onPress={() => navigation.navigate("Login")}
       >
         <MaterialIcons name="login" size={40} color="#F0C818" />
         <Text style={styles.textOption}>Entrar</Text>

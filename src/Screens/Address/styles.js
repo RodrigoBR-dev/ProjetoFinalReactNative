@@ -8,6 +8,8 @@ const styles = StyleSheet.create({
     // flexDirection: "row"
   },
   boxInfo: {
+    width: "100%",
+    alignItems:"center",
     justifyContent:"space-evenly",
     margin: 10,
   },
@@ -19,8 +21,8 @@ const styles = StyleSheet.create({
     textShadowRadius: 0.9,
   },
   input: {
-    width: 300,
-    height: "10%",
+    width: "80%",
+    height: 40,
     borderBottomWidth: 1,
     borderBottomColor: "#ddd",
   },
