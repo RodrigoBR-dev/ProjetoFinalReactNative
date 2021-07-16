@@ -84,11 +84,12 @@ export default function ProductDetails({ route }) {
               </Text>
             </View>
           </View>
-          <View>
+          <View style={styles.buttonContainer}>
             <NumericInput 
               value={quantity} 
               onChange={valor => setQuantity(valor)}
               minValue={1}
+              maxValue={product.quantEstoque}
               totalWidth={140} 
               totalHeight={40} 
               rounded/>
