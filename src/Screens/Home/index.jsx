@@ -28,6 +28,7 @@ const Home = () => {
         renderItem={({ item }) => {
           // console.log(item);
           return (
+            
             <Card
               name={item.nome}
               price={item.preco}

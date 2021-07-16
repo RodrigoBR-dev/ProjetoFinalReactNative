@@ -24,15 +24,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
+  
   textContainer: {
-    flex: 1,
     width: "80%",
-    justifyContent: "space-around",
   },
 
   footer: {
-    flex: 1,
+    height: "40%",
     alignItems: "center",
     width: "70%",
     justifyContent: "space-around",
@@ -42,6 +40,7 @@ const styles = StyleSheet.create({
     width: "100%",
     borderBottomWidth: 1,
     borderColor: "#ddd",
+    height: 50,
   },
 
   checkContainer: {

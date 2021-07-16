@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Text,
   CheckBox,
+  ScrollView,
 } from "react-native";
 
 import styles from "./styles";

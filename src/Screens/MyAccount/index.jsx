@@ -37,21 +37,13 @@ const MyAccount = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header isOnlyLogo />
-      {user ? (
-        <TouchableOpacity style={styles.boxOption} onPress={removeUser}>
-          <MaterialIcons name="login" size={40} color="#F0C818" />
-          <Text style={styles.textOption}>Logout</Text>
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity
-          style={styles.boxOption}
-          onPress={() => navigation.navigate("Login", { back: "MyAccount" })}
-        >
-          <MaterialIcons name="login" size={40} color="#F0C818" />
-          <Text style={styles.textOption}>Entrar</Text>
-        </TouchableOpacity>
-      )}
-
+      <TouchableOpacity
+        style={styles.boxOption}
+        onPress={() => navigation.navigate("Login")}
+      >
+        <MaterialIcons name="login" size={40} color="#F0C818" />
+        <Text style={styles.textOption}>Entrar</Text>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.boxOption}>
         <MaterialIcons name="help-outline" size={40} color="#F0C818" />
         <Text style={styles.textOption}>Ajuda/FAQ</Text>
