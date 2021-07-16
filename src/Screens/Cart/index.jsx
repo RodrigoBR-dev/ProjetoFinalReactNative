@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
@@ -11,6 +11,7 @@ import CartProduct from "../../model/cartProduct";
 import Header from "../../components/Header";
 
 import { Button } from "../../components/Button";
+import money from "../../util/money";
 
 export default function Cart() {
   const navigation = useNavigation();
@@ -20,7 +21,6 @@ export default function Cart() {
   const [deliveryDate, setDeliveryDate] = useState("");
   const [productsValue, setProductsValue] = useState(0);
   const [totalValue,setTotalValue] = useState(0);
-  const [totalCart, setTotalCart] = useState(0);
 
   useEffect(() => {
     getOrderNumber();
@@ -28,23 +28,7 @@ export default function Cart() {
 
   useEffect(() => {
     getPedido();
-    // calculateTotalValue();
-    
-  }, [orderNumber, ]);
-
-  useEffect(() => {
-    exibeTotal();
-  },[totalCart])
-
-    function calculateTotalValue(){
-    var somar = 0;
-    products.map( async produto =>  {
-      setTotalValue( totalValue + parseFloat(await asyncStorage.obterTotal(produto.nome)) );
-      
-    });
-    console.log(totalValue)
-    
-  }
+  }, [orderNumber]);
 
   async function getOrderNumber() {
     setOrderNumber(await asyncStorage.obterNumeroPedido());
@@ -54,6 +38,7 @@ export default function Cart() {
     if (orderNumber) {
       await apiPedido.get(orderNumber).then((answer) => {
         setDelivery(answer.data.frete);
+        setTotalValue(answer.data.totalProdutos)
         setDeliveryDate(answer.data.dataEntrega);
         setProductsValue(answer.data.totalProdutos);
         setProducts(answer.data.produto.map((obj) => new CartProduct(obj)));
@@ -61,13 +46,9 @@ export default function Cart() {
     }
   }
 
-  const exibeTotal = () => {
-    console.log(totalCart)
-  }
-
   return (
     <View style={styles.container}>
-      <Header isOnlyLogo />
+      {/* <Header isOnlyLogo /> */}
       <FlatList
         data={products}
         keyExtractor={(item) => item.nome}
@@ -77,14 +58,19 @@ export default function Cart() {
             price={item.valor}
             image={item.imagem}
             quantity={item.quantidade}
-            totalCart={totalCart}
-            setTotalCart={setTotalCart}
+            productsValue={productsValue}
+            setProductsValue={setProductsValue}
           />
         )}
         contentContainerStyle={styles.flat}
       />
       <View style={styles.info}>
-        <Text style={styles.paragraph}>Valor total da compra: </Text>
+        <View style={styles.resume}>
+          <Text style={styles.paragraph}>Valor total da compra: {money.formatarParaReal(totalValue)} </Text>
+          <Text style={styles.paragraph}>Frete: {money.formatarParaReal(delivery)}</Text>
+          <Text style={styles.paragraph}>Total: {money.formatarParaReal(totalValue + delivery)}</Text>
+          <Text style={styles.paragraph}>Previsão de entrega: {deliveryDate}</Text>
+        </View>
         <View style={styles.buttonContainer}>
           <Button
             big
@@ -96,7 +82,6 @@ export default function Cart() {
             title="Finalizar compra"
             onPress={() => navigation.navigate("Home")}
           ></Button>
-          <Text>{totalCart}</Text>
         </View>
       </View>
     </View>

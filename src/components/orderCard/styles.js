@@ -2,21 +2,6 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   card: {
-// <<<<<<< HEAD
-      
-//       width: '100%',
-//       height: 80,
-//       marginTop: 10,
-//       flexDirection: 'row',
-//       alignItems: 'center',
-//       justifyContent: 'space-between',
-//       backgroundColor: '#fff',
-//   },
-
-//   image: {
-//       width: '10%',
-//       height: 30,
-// =======
     width: "100%",
     height: 80,
     marginTop: 10,
@@ -26,19 +11,23 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     backgroundColor: "#fff",
   },
+
   name: {
-    width: 100,
+    width: 80,
   },
+
   finalPrice: {
-    fontSize: 16,
+    paddingLeft: 5,
+    fontSize: 14,
   },
+  
   price: {
+    paddingRight: 5,
     fontSize: 14,
   },
 
   image: {
-    width: 30,
-    height: 30,
-
+    width: 40,
+    height: 40,
   },
 });

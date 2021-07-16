@@ -10,17 +10,24 @@ export const styles = StyleSheet.create({
     flex: 3,
     paddingHorizontal: 10,
   },
+
   paragraph: {
     fontSize: 18,
   },
 
   info: {
     flex: 1,
-    paddingHorizontal: 50,
+    paddingHorizontal: 20,
     justifyContent: "space-around",
   },
+
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
+  },
+
+  resume: {
+    alignItems: "flex-end",
+    marginRight: 15,
   },
 });
