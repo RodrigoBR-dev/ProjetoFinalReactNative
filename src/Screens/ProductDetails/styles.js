@@ -43,4 +43,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 50,
   },
+
+  buttonContainer: {
+    alignItems: "center",
+  }
 });
