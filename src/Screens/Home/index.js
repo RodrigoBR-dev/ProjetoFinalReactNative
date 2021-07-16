@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { View, FlatList, ScrollView } from "react-native";
+
+import { View, FlatList } from "react-native";
+
+
 import apiProduto from "../../service/apiProduto";
 import Produto from "../../model/produto";
 import Card from "../../components/card/index";
@@ -28,7 +31,7 @@ const Home = () => {
   }, []);
 
   return (
-      <View>
+      <View style={styles.containerHome}>
         <Header isDetailsPage />
         <FlatList
           data={produtos}

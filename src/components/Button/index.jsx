@@ -1,12 +1,13 @@
 import React from "react";
 
-import { View, Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
 
-export function Button({ big }) {
+export function Button({ big, onPress }) {
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress}
       style={[
         styles.button,
         big ? { width: 140, height: 60 } : { width: 100, height: 30 },
@@ -18,6 +19,6 @@ export function Button({ big }) {
       >
         Comprar
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 }
