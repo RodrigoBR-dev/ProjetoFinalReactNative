@@ -10,20 +10,20 @@ const Favorite = () => {
   const [product, setProduct] = useState([]);
   const [nameProduct, setNameProduct] = useState("");
   useEffect(() => {
-    store()
-    renderFavorite()
+    store();
+    renderFavorite();
   }, []);
-  
-  const store = async() => {
+
+  const store = async () => {
     setNameProduct(await asyncStorage.getFavorite());
-    
-  }
-  
-  const renderFavorite = async() => {
-    console.log(nameProduct)
-    const resposta = await apiProduto.searchProductByName(nameProduct)
-    setProduct(resposta.data.map((produto) => new 
-    Produto(produto)));
+  };
+
+  const renderFavorite = async () => {
+    await apiProduto.searchProductByName(nameProduct).then((res) => {
+      console.log(nameProduct);
+      setProduct(res.data.map((produto) => new Produto(produto)));
+    });
+
     // console.log(product)
   };
 
@@ -35,16 +35,15 @@ const Favorite = () => {
       description={item.descricao}
     />
   );
- 
+
   return (
-    
-  <FlatList
-    data={product}
-    keyExtractor={(item) => item.nome}
-    numColumns={2}
-    renderItem={renderProduto}
-    contentContainerStyle={styles.container}
-  />
+    <FlatList
+      data={product}
+      keyExtractor={(item) => item.nome}
+      numColumns={2}
+      renderItem={renderProduto}
+      contentContainerStyle={styles.container}
+    />
   );
-  }
+};
 export default Favorite;
