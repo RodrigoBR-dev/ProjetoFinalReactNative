@@ -20,6 +20,7 @@ export default function Cart() {
   const [deliveryDate, setDeliveryDate] = useState("");
   const [productsValue, setProductsValue] = useState(0);
   const [totalValue,setTotalValue] = useState(0);
+  const [totalCart, setTotalCart] = useState(0);
 
   useEffect(() => {
     getOrderNumber();
@@ -27,7 +28,23 @@ export default function Cart() {
 
   useEffect(() => {
     getPedido();
-  }, [orderNumber]);
+    // calculateTotalValue();
+    
+  }, [orderNumber, ]);
+
+  useEffect(() => {
+    exibeTotal();
+  },[totalCart])
+
+    function calculateTotalValue(){
+    var somar = 0;
+    products.map( async produto =>  {
+      setTotalValue( totalValue + parseFloat(await asyncStorage.obterTotal(produto.nome)) );
+      
+    });
+    console.log(totalValue)
+    
+  }
 
   async function getOrderNumber() {
     setOrderNumber(await asyncStorage.obterNumeroPedido());
@@ -44,6 +61,10 @@ export default function Cart() {
     }
   }
 
+  const exibeTotal = () => {
+    console.log(totalCart)
+  }
+
   return (
     <View style={styles.container}>
       <Header isOnlyLogo />
@@ -56,12 +77,14 @@ export default function Cart() {
             price={item.valor}
             image={item.imagem}
             quantity={item.quantidade}
+            totalCart={totalCart}
+            setTotalCart={setTotalCart}
           />
         )}
         contentContainerStyle={styles.flat}
       />
       <View style={styles.info}>
-        <Text style={styles.paragraph}>Valor total da compra:{totalValue} </Text>
+        <Text style={styles.paragraph}>Valor total da compra: </Text>
         <View style={styles.buttonContainer}>
           <Button
             big
@@ -73,6 +96,7 @@ export default function Cart() {
             title="Finalizar compra"
             onPress={() => navigation.navigate("Home")}
           ></Button>
+          <Text>{totalCart}</Text>
         </View>
       </View>
     </View>
