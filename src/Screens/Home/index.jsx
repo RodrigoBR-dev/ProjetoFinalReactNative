@@ -25,14 +25,17 @@ const Home = () => {
         data={produtos}
         keyExtractor={(item) => item.nome}
         numColumns={2}
-        renderItem={({ item }) => (
-          <Card
-            name={item.nome}
-            price={item.preco}
-            image={item.url}
-            description={item.descricao}
-          />
-        )}
+        renderItem={({ item }) => {
+          // console.log(item);
+          return (
+            <Card
+              name={item.nome}
+              price={item.preco}
+              image={item.url}
+              description={item.descricao}
+            />
+          );
+        }}
         contentContainerStyle={styles.container}
       />
     </View>

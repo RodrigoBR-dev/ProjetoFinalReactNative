@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/native";
+
 import { View, Image, Text, ScrollView, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import NumericInput from "react-native-numeric-input";
@@ -19,6 +21,7 @@ export default function ProductDetails({ route }) {
   const [pedido, setPedido] = useState("");
   const [user, setUser] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [duplicate, setDuplicate] = useState(false);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -63,21 +66,45 @@ export default function ProductDetails({ route }) {
     navigation.navigate("Home");
   }
 
-  async function handleFavorite() {
-    const newFavorite = { name, price, image, description };
-    const storage = asyncStorage.getFavorite();
+  useFocusEffect(
+    useCallback(() => {
+      verifyDuplicate();
+    })
+  );
+
+  async function verifyDuplicate() {
+    const storage = await asyncStorage.getFavorite();
     const favorites = storage ? JSON.parse(storage) : [];
 
+    await favorites.map((favorite) => {
+      if (favorite.name === name) {
+        setDuplicate(true);
+      }
+    });
+  }
+
+  async function handleFavorite(name, price, image, description) {
+    // asyncStorage.removeFavorite();
+    const newFavorite = { name, price, image, description };
+    const storage = await asyncStorage.getFavorite();
+    const favorites = storage ? JSON.parse(storage) : [];
     asyncStorage.storeFavorite(JSON.stringify([...favorites, newFavorite]));
+    setDuplicate(true);
   }
 
   return (
     <ScrollView>
       <Header isDetailsPage />
       <View style={styles.container}>
-        <TouchableOpacity onPress={handleFavorite}>
-          <MaterialIcons name="favorite" size={50} />
-        </TouchableOpacity>
+        {duplicate ? (
+          <MaterialIcons name="favorite" size={50} color="#555" />
+        ) : (
+          <TouchableOpacity
+            onPress={() => handleFavorite(name, price, image, description)}
+          >
+            <MaterialIcons name="favorite" size={50} color="#f24018" />
+          </TouchableOpacity>
+        )}
         <Image style={styles.image} source={{ uri: image }} />
 
         <View style={styles.detailsContainer}>
