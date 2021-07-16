@@ -7,21 +7,43 @@ import { styles } from "./styles";
 import money from "../../util/money";
 import asyncStorage from "../../service/asyncStorage";
 
-export default function OrderCard({ name, pic, price, quantity }) {
+export default function OrderCard({ name, pic, price, quantity, totalCart ,setTotalCart}) {
   const [stock, setStock] = useState(0);
   const [amount, setAmount] = useState(quantity);
-  const [total, setTotal] = useState("");
+  const [total, setTotal] = useState(0);
+  let verificaQuant = quantity;
 
-  useEffect(() => {
+  useEffect(() => {  
+    // setTotalCart(totalCart + (price * amount));
     getStock();
   }, []);
 
-  useEffect(() => {
-    setTotal(money.formatarParaReal(price * amount));
+  useEffect(()  => {
+    setTotal((price * amount));
+    calculaTotal();
+     // setAsyncTotal();
   }, [amount]);
+
+  useEffect(() => {
+    
+  },[])
+
+  const setAsyncTotal = async () => {
+    asyncStorage.armazenarTotal(String(name), String(price * amount));   
+  }
 
   async function getStock() {
     setStock(Number(await asyncStorage.obterEstoque(name)));
+  }
+
+  const calculaTotal = () => {
+    if(verificaQuant > amount){
+      setTotalCart(totalCart - (price))
+    }else if( verificaQuant < amount){
+      setTotalCart(totalCart + (price))
+    }
+
+
   }
 
   return (

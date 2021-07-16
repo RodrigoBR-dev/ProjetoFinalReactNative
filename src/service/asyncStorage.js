@@ -4,8 +4,17 @@ const armazenarEstoque = (nomeProduto, quantidade) => {
   AsyncStorage.setItem(nomeProduto, quantidade);
 };
 
+const armazenarTotal = (totalProduto, total) => {
+  AsyncStorage.setItem("Total" + totalProduto, total);
+ 
+};
+
 const obterEstoque = async (nomeProduto) => {
   return AsyncStorage.getItem(nomeProduto);
+};
+
+const obterTotal = async (nomeProduto) => {
+  return AsyncStorage.getItem("Total" + nomeProduto);
 };
 
 const armazenarNumeroPedido = async (pedido) => {
@@ -94,4 +103,6 @@ export default {
   removerNumeroPedido,
   removeUser,
   removeFavorite,
+  obterTotal,
+  armazenarTotal
 };
