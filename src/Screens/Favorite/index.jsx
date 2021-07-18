@@ -61,7 +61,9 @@ const Favorite = () => {
           contentContainerStyle={styles.container}
         />
       ) : (
-        <Text>Você não favoritou nenhum produto</Text>
+        <View style={styles.info}>
+        <Text>Você ainda não marcou favoritos!</Text>
+        </View>
       )}
     </View>
   );
