@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { MaterialIcons, Ionicons } from "react-native-vector-icons";
+import { MaterialIcons } from "react-native-vector-icons";
 
 import Header from "../../components/Header";
 import styles from "./styles";
@@ -11,7 +11,7 @@ import asyncStorage from "../../service/asyncStorage";
 const MyAccount = ({ navigation }) => {
   const [user, setUser] = useState(false);
   async function clearFavorites() {
-    await asyncStorage.removeFavorite();
+    asyncStorage.removeFavorite();
   }
 
   async function removeUser() {
@@ -55,9 +55,12 @@ const MyAccount = ({ navigation }) => {
         <MaterialIcons name="help-outline" size={40} color="#F0C818" />
         <Text style={styles.textOption}>Ajuda/FAQ</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.boxOption}>
-        <Ionicons name="settings" size={40} color="#F0C818" />
-        <Text style={styles.textOption}>Configurações</Text>
+      <TouchableOpacity
+        style={styles.boxOption}
+        onPress={() => navigation.navigate("Address", { back: "MyAccount" })}
+        >
+        <MaterialIcons name="contact-mail" size={40} color="#F0C818" />
+        <Text style={styles.textOption}>Endereço</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.boxOption} onPress={clearFavorites}>
         <MaterialIcons name="favorite" size={40} color="#F0C818" />

@@ -22,21 +22,20 @@ export default function Address() {
    getUser();
   }, []);
 
-  function getUser() {
-    setUser(asyncStorage.getUser());
+  async function getUser() {
+    setUser(await asyncStorage.getUser());
   }
 
   const createAddress = () => {
-    console.log(cep, name, complement, number, user);
-    // apiCreateAdrress
-    //   .create(cep, name, user, number, complement)
-    //   .then((res) => {
-    //     console.log(res);
-    //     navigation.navigate("Login")
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+    apiCreateAdrress
+      .create(cep, name, user, number, complement)
+      .then((res) => {
+        asyncStorage.storeAddress(name);
+        navigation.goBack();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (

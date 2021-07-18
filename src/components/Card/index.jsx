@@ -1,12 +1,11 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { Text, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "./styles";
 import money from "../../util/money";
 
-import { useNavigation } from "@react-navigation/native";
-
-function Card({ name, price, image, description }) {
+export default function Card({ name, price, image, description }) {
   const navigation = useNavigation();
   function handleProductDetails() {
     navigation.navigate("ProductDetails", { name, price, image, description });
@@ -23,4 +22,3 @@ function Card({ name, price, image, description }) {
     </TouchableOpacity>
   );
 }
-export default Card;

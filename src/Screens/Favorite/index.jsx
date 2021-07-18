@@ -1,15 +1,12 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState,  useCallback } from "react";
 import { View, Text, FlatList } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
+
 import asyncStorage from "../../service/asyncStorage";
 import styles from "./styles";
-
 import Produto from "../../model/produto";
-
 import Card from "../../components/Card";
-
 import Header from "../../components/Header";
-
-import { useFocusEffect } from "@react-navigation/native";
 
 const Favorite = () => {
   const [favorites, setFavorites] = useState([]);

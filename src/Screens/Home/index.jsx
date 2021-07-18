@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, FlatList } from "react-native";
 import apiProduto from "../../service/apiProduto";
 import Produto from "../../model/produto";
-import Card from "../../components/Card";
+import Card from "../../components/Card"
 import styles from "./styles";
 import Header from "../../components/Header";
 
@@ -26,9 +26,7 @@ const Home = () => {
         keyExtractor={(item) => item.nome}
         numColumns={2}
         renderItem={({ item }) => {
-          // console.log(item);
           return (
-            
             <Card
               name={item.nome}
               price={item.preco}

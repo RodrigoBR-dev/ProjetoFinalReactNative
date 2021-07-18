@@ -6,6 +6,11 @@ export const styles = StyleSheet.create({
     marginTop: 25,
   },
 
+  numPed: {
+    padding: 5,
+    paddingLeft: 10,
+  },
+
   flat: {
     flex: 3,
     paddingHorizontal: 10,

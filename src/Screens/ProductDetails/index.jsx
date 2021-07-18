@@ -16,12 +16,12 @@ import apiProduto from "../../service/apiProduto";
 
 export default function ProductDetails({ route }) {
   const { name, price, image, description } = route.params;
-
   const [product, setProduct] = useState({});
   const [pedido, setPedido] = useState("");
   const [user, setUser] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [duplicate, setDuplicate] = useState(false);
+  const [address, setAddress] = useState("");
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -35,6 +35,7 @@ export default function ProductDetails({ route }) {
     setProduct(prod.data);
     setPedido(await asyncStorage.obterNumeroPedido());
     setUser(await asyncStorage.getUser());
+    setAddress(await asyncStorage.getAddress());
   };
 
   function loginTest() {
@@ -46,7 +47,6 @@ export default function ProductDetails({ route }) {
   }
 
   async function createPedido() {
-    let address = "casa";
     await apiPedido
       .create(user, address, product.nome, quantity)
       .then((answer) => {
