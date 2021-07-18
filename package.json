@@ -20,6 +20,7 @@
     "react-dom": "16.13.1",
     "react-icons": "^4.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-datepicker": "^1.7.2",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-intl": "^1.0.0",
     "react-native-numeric-input": "^1.9.0",

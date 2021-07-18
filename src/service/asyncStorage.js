@@ -89,7 +89,15 @@ function removeFavorite() {
   AsyncStorage.removeItem("favorite");
 }
 
-export default {
+function storeAddress(address) {
+  AsyncStorage.setItem("address", address);
+}
+
+function getAddress() {
+  return AsyncStorage.getItem("address");
+}
+
+const asyncStorage = {
   armazenarEstoque,
   obterEstoque,
   armazenarNumeroPedido,
@@ -104,5 +112,9 @@ export default {
   removeUser,
   removeFavorite,
   obterTotal,
-  armazenarTotal
+  armazenarTotal,
+  storeAddress,
+  getAddress
 };
+
+export default asyncStorage;

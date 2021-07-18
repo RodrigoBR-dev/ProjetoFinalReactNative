@@ -33,19 +33,16 @@ export default function Login({ route }) {
     apiLogin
       .logar(email, senha)
       .then((resposta) => {
-        const token = resposta.data[0].Authorization;
-        const user = resposta.data[1].userName;
-        asyncStorage.armazenarToken(token);
-        asyncStorage.armazenarUser(user);
-        back === "ProductDetails"
-          ? navigation.goBack()
-          : navigation.navigate("MyAccount");
+        asyncStorage.armazenarToken(resposta.data[0].Authorization);
+        asyncStorage.armazenarUser(resposta.data[1].userName);
+        back === "Signup"
+          ? navigation.navigate("Address")
+          : navigation.goBack()
       })
       .catch((error) => {
         let erroStatus = error.response.status;
         if (erroStatus == 403) {
           alert("Usuário ou senha inválido");
-          return <></>;
         }
       });
   };

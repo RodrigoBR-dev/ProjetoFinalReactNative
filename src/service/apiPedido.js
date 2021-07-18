@@ -27,6 +27,6 @@ function get(numeroDoPedido) {
     });
 }
 
-const apiPedido = {create, update, get};
+const apiPedido = { create, update, get };
 
 export default apiPedido;

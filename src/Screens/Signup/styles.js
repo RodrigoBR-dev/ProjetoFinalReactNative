@@ -33,9 +33,8 @@ const styles = StyleSheet.create({
   },
 
   textInput: {
-    height: 40, //trabalhar altura com pixel para não da diferença na hora de abrir o teclado
+    height: 40,
     width: "100%",
-    // overflow: "hidden",
     borderBottomWidth: 1,
     borderColor: "#ddd",
   },
